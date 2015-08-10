@@ -13,6 +13,16 @@ class data_storeTest extends PHPUnit_Framework_TestCase {
         $this->assertNotNull($a);
     }
 
+    public function testGetTablesRoot() {
+        $ds = new data_store("tests/temp/");
+        $this->assertEquals($ds->getTablesRoot(),"tests/temp/tables");
+    }
+
+    public function testGetIndexRoot() {
+        $ds = new data_store("tests/temp/");
+        $this->assertEquals($ds->getIndexRoot(),"tests/temp/index");
+    }
+
     public function testDatastoreExists() {
         $ds = new data_store();
         $this->assertTrue($ds->check());
@@ -38,6 +48,25 @@ class data_storeTest extends PHPUnit_Framework_TestCase {
     public function testListTables() {
         $ds = new data_store("tests/temp/");
         $this->assertEquals($ds->getTables(),["orders","transactions"],"List tables");
+    }
+
+    public function testCannotAddExistingTable() {
+        $ds = new data_store("tests/temp/");
+        $this->assertFalse($ds->createTable("orders"));
+    }
+
+    public function testAddAndDeleteExistingTable() {
+        $ds = new data_store("tests/temp/");
+        $this->assertTrue($ds->createTable("orders2"),"Table created");
+        rmdir($ds->getTablesRoot()."/orders2");
+    }
+
+    public function testStoreObjectInTable() {
+        $ds = new data_store("tests/temp/");
+        $data = new object("foo");
+        $this->assertTrue($ds->store($data,"transactions"),"Data added");
+        $this->assertTrue(file_exists("tests/temp/tables/transactions/".$data->id),"Data stored");
+        unlink("tests/temp/tables/transactions/".$data->id);
     }
 
 }
