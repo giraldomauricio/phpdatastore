@@ -69,4 +69,15 @@ class data_storeTest extends PHPUnit_Framework_TestCase {
         unlink("tests/temp/tables/transactions/".$data->id);
     }
 
+    public function testStoreObjectInTableAndThenReadIt() {
+        $ds = new data_store("tests/temp/");
+        $data = new object("foo");
+        $this->assertTrue($ds->store($data,"transactions"),"Data added");
+        $recovered = $ds->read($data->id,"transactions");
+        $this->assertEquals($recovered->id,$data->id,"Data id");
+        $this->assertEquals($recovered->data,$data->data,"Data data");
+        $this->assertTrue(file_exists("tests/temp/tables/transactions/".$data->id),"Data stored");
+        unlink("tests/temp/tables/transactions/".$data->id);
+    }
+
 }

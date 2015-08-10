@@ -69,6 +69,11 @@ class data_store {
         }
     }
 
+    function read($id, $table_name) {
+        $s = file_get_contents($this->getTablesRoot()."/".$table_name."/".$id);
+        return unserialize($s);
+    }
+
 }
 
 ?>
