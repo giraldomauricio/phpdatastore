@@ -4,18 +4,18 @@ date_default_timezone_set('America/Los_Angeles');
 
 class data_store {
 
-    var $location = ".";
+    var $location;
     var $tablesFolder = "tables";
     var $indexFolder = "index";
     var $root = ".";
     var $config;
 
-    function __construct($dir = ".") {
+    function __construct($dir) {
+        $dir = realpath($dir)."/";
         if(file_exists($dir)) {
             $this->location = $dir;
-        }
-        if(substr($this->location,-1,1) != "/") {
-            $this->location .= "/";
+        } else {
+            throw new Exception("Datastore does not exist.");
         }
     }
 
