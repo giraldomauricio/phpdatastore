@@ -9,60 +9,60 @@
 class data_storeTest extends PHPUnit_Framework_TestCase {
 
     public function testExists() {
-        $a = new data_store(dirname(__FILE__)."/../temp/");
+        $a = new data_store(getcwd()."/tests/temp/");
         $this->assertNotNull($a);
     }
 
     public function testGetTablesRoot() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         $this->assertEquals($ds->getTablesRoot(),$ds->location."tables");
     }
 
     public function testGetIndexRoot() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         $this->assertEquals($ds->getIndexRoot(),$ds->location."index");
     }
 
     public function testDatastoreExists() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         $this->assertTrue($ds->check());
     }
 
     public function testDatastoreDoesNotExists() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         $ds->location = "foo/bar";
         $this->assertFalse($ds->check());
     }
 
     public function testCreateDatastore() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         $this->assertFalse($ds->create("/foo/bar"),"Creates a DataStore");
     }
 
     public function testDataStoreBasicDirectories() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         $this->assertEquals($ds->tablesFolder,"tables","Tables");
         $this->assertEquals($ds->indexFolder,"index","Indexes");
     }
 
     public function testListTables() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         $this->assertEquals($ds->getTables(),["orders","transactions"],"List tables");
     }
 
     public function testCannotAddExistingTable() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         $this->assertFalse($ds->createTable("orders"));
     }
 
     public function testAddAndDeleteExistingTable() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         $this->assertTrue($ds->createTable("orders2"),"Table created");
         rmdir($ds->getTablesRoot()."/orders2");
     }
 
     public function testStoreObjectInTable() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         $data = new object("foo");
         $this->assertTrue($ds->store($data,"transactions"),"Data added");
         $this->assertTrue(file_exists("tests/temp/tables/transactions/".$data->id),"Data stored");
@@ -70,7 +70,7 @@ class data_storeTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testStoreObjectInTableAndThenReadIt() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         $data = new object("foo");
         $this->assertTrue($ds->store($data,"transactions"),"Data added");
         $recovered = $ds->read($data->id,"transactions");
@@ -81,7 +81,7 @@ class data_storeTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testIndexCreation() {
-        $ds = new data_store(dirname(__FILE__)."/../temp/");
+        $ds = new data_store(getcwd()."/tests/temp/");
         echo "Testing...".__FILE__;
         //$this->assertTrue($ds->createIndex())
     }
