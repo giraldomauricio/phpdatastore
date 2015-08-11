@@ -10,13 +10,16 @@ class data_store {
     var $root = ".";
     var $config;
 
-    function __construct($dir) {
-        $dir = realpath($dir)."/";
-        echo "-->".$dir."<--\n\r";
-        if(file_exists($dir)) {
-            $this->location = $dir;
+    function __construct() {
+        echo "-->".DS_ROOT."<--\n\r";
+        if(defined("DS_ROOT")) {
+            if(file_exists(DS_ROOT)) {
+                $this->location = DS_ROOT."/";
+            } else {
+                throw new Exception("Datastore does not exist.");
+            }
         } else {
-            throw new Exception("Datastore does not exist.");
+            throw new Exception("Datastore is not set.");
         }
     }
 
