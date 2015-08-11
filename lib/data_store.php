@@ -11,7 +11,6 @@ class data_store {
     var $config;
 
     function __construct() {
-        echo "-->".DS_ROOT."<--\n\r";
         if(defined("DS_ROOT")) {
             if(file_exists(DS_ROOT)) {
                 $this->location = DS_ROOT."/";
