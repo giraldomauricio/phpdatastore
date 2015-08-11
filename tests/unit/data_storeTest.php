@@ -9,7 +9,6 @@
 class data_storeTest extends PHPUnit_Framework_TestCase {
 
     public function testExists() {
-        print_r($argv);
         $a = new data_store();
         $this->assertNotNull($a);
     }
