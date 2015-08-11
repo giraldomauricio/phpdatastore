@@ -8,6 +8,7 @@ class data_store {
     var $tablesFolder = "tables";
     var $indexFolder = "index";
     var $root = ".";
+    var $config;
 
     function __construct($dir = ".") {
         if(file_exists($dir)) {

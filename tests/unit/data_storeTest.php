@@ -80,4 +80,9 @@ class data_storeTest extends PHPUnit_Framework_TestCase {
         unlink("tests/temp/tables/transactions/".$data->id);
     }
 
+    public function testIndexCreation() {
+        $ds = new data_store("tests/temp/");
+        //$this->assertTrue($ds->createIndex())
+    }
+
 }
