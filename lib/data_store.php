@@ -12,6 +12,7 @@ class data_store {
 
     function __construct($dir) {
         $dir = realpath($dir)."/";
+        echo "-->".$dir."<--\n\r";
         if(file_exists($dir)) {
             $this->location = $dir;
         } else {
