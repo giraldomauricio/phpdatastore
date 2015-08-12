@@ -121,4 +121,16 @@ class data_storeTest extends PHPUnit_Framework_TestCase {
         unlink("tests/temp/indexes/a.index");
     }
 
+    public function testRetrieveARecord() {
+        $ds = new data_store();
+        $some_table = new table("foo");
+        $some_table->indexes = ["field"];
+        $some_table->data = ["a" => "b"];
+        $ds->store($some_table,$some_table->name);
+        $record = $ds->getById($some_table->id);
+        $this->assertEquals($record->data['a'],'b');
+        unlink("tests/temp/tables/foo/".$some_table->id);
+        rmdir($ds->getTablesRoot()."/foo");
+    }
+
 }

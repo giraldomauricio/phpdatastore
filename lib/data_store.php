@@ -92,6 +92,10 @@ class data_store {
         }
     }
 
+    function getById($id) {
+        return $this->read($id, $this->object->name);
+    }
+
 }
 
 ?>
