@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1439347031">
+  <project timestamp="1439347031">
+    <file name="/Users/mgiraldo/Google Drive/2015/Projects/phpdatastore/lib/config_manager.php">
+      <class name="config_manager" namespace="global" fullPackage="config">
+        <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="4" ncloc="4" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/Users/mgiraldo/Google Drive/2015/Projects/phpdatastore/lib/data_store.php">
+      <class name="data_store" namespace="global" fullPackage="data">
+        <metrics methods="12" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="38" elements="55" coveredelements="47"/>
+      </class>
+      <line num="3" type="stmt" count="1"/>
+      <line num="14" type="method" name="__construct" crap="3.14" count="15"/>
+      <line num="15" type="stmt" count="15"/>
+      <line num="16" type="stmt" count="15"/>
+      <line num="17" type="stmt" count="15"/>
+      <line num="18" type="stmt" count="15"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="15"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="15"/>
+      <line num="26" type="method" name="getTablesRoot" crap="1" count="9"/>
+      <line num="27" type="stmt" count="9"/>
+      <line num="30" type="method" name="getIndexRoot" crap="1" count="3"/>
+      <line num="31" type="stmt" count="3"/>
+      <line num="34" type="method" name="check" crap="2" count="3"/>
+      <line num="35" type="stmt" count="3"/>
+      <line num="38" type="method" name="create" crap="2.50" count="1"/>
+      <line num="39" type="stmt" count="1"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="43" type="stmt" count="1"/>
+      <line num="47" type="method" name="getTables" crap="5" count="1"/>
+      <line num="48" type="stmt" count="1"/>
+      <line num="49" type="stmt" count="1"/>
+      <line num="50" type="stmt" count="1"/>
+      <line num="51" type="stmt" count="1"/>
+      <line num="52" type="stmt" count="1"/>
+      <line num="53" type="stmt" count="1"/>
+      <line num="54" type="stmt" count="1"/>
+      <line num="55" type="stmt" count="1"/>
+      <line num="58" type="method" name="createTable" crap="2" count="5"/>
+      <line num="59" type="stmt" count="5"/>
+      <line num="60" type="stmt" count="4"/>
+      <line num="61" type="stmt" count="4"/>
+      <line num="64" type="stmt" count="1"/>
+      <line num="68" type="method" name="store" crap="2.03" count="5"/>
+      <line num="69" type="stmt" count="5"/>
+      <line num="70" type="stmt" count="5"/>
+      <line num="71" type="stmt" count="5"/>
+      <line num="72" type="stmt" count="5"/>
+      <line num="74" type="stmt" count="0"/>
+      <line num="78" type="method" name="storeIndex" crap="1" count="2"/>
+      <line num="79" type="stmt" count="2"/>
+      <line num="80" type="stmt" count="2"/>
+      <line num="81" type="stmt" count="2"/>
+      <line num="82" type="stmt" count="2"/>
+      <line num="84" type="method" name="read" crap="1" count="2"/>
+      <line num="85" type="stmt" count="2"/>
+      <line num="86" type="stmt" count="2"/>
+      <line num="89" type="method" name="index" crap="2" count="2"/>
+      <line num="90" type="stmt" count="2"/>
+      <line num="91" type="stmt" count="2"/>
+      <line num="92" type="stmt" count="2"/>
+      <line num="93" type="stmt" count="2"/>
+      <line num="95" type="method" name="getById" crap="1" count="1"/>
+      <line num="96" type="stmt" count="1"/>
+      <metrics loc="100" ncloc="100" classes="1" methods="12" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="39" elements="56" coveredelements="48"/>
+    </file>
+    <file name="/Users/mgiraldo/Google Drive/2015/Projects/phpdatastore/lib/object.php">
+      <class name="object" namespace="global">
+        <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+      </class>
+      <line num="9" type="method" name="__construct" crap="1" count="5"/>
+      <line num="10" type="stmt" count="5"/>
+      <line num="11" type="stmt" count="5"/>
+      <line num="12" type="stmt" count="5"/>
+      <line num="13" type="stmt" count="5"/>
+      <metrics loc="14" ncloc="14" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+    </file>
+    <file name="/Users/mgiraldo/Google Drive/2015/Projects/phpdatastore/lib/table.php">
+      <class name="table" namespace="global">
+        <metrics methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="5" elements="9" coveredelements="6"/>
+      </class>
+      <line num="8" type="method" name="__construct" crap="2" count="3"/>
+      <line num="9" type="stmt" count="3"/>
+      <line num="10" type="stmt" count="3"/>
+      <line num="11" type="stmt" count="3"/>
+      <line num="12" type="stmt" count="3"/>
+      <line num="13" type="stmt" count="3"/>
+      <line num="15" type="method" name="index" crap="2" count="0"/>
+      <line num="16" type="stmt" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <metrics loc="17" ncloc="17" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="5" elements="9" coveredelements="6"/>
+    </file>
+    <file name="/Users/mgiraldo/Google Drive/2015/Projects/phpdatastore/tests/AutoLoader.php">
+      <class name="AutoLoader" namespace="global">
+        <metrics methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="4" elements="19" coveredelements="5"/>
+      </class>
+      <line num="10" type="method" name="registerDirectory" crap="42" count="0"/>
+      <line num="12" type="stmt" count="0"/>
+      <line num="13" type="stmt" count="0"/>
+      <line num="15" type="stmt" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="26" type="method" name="registerClass" crap="2" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="30" type="method" name="loadClass" crap="2" count="4"/>
+      <line num="31" type="stmt" count="4"/>
+      <line num="32" type="stmt" count="4"/>
+      <line num="33" type="stmt" count="4"/>
+      <line num="34" type="stmt" count="4"/>
+      <metrics loc="37" ncloc="30" classes="1" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="4" elements="19" coveredelements="5"/>
+    </file>
+    <metrics files="5" loc="172" ncloc="165" classes="5" methods="18" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="71" coveredstatements="52" elements="89" coveredelements="64"/>
+  </project>
+</coverage>
