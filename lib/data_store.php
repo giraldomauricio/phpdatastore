@@ -77,7 +77,7 @@ class data_store {
 
     function storeIndex($key, $value) {
         $fh = fopen($this->getIndexRoot()."/".$key.".index", 'a');
-        fwrite($fh, $value."\n");
+        fwrite($fh, $value.PHP_EOL);
         fclose($fh);
     }
 

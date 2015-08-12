@@ -93,4 +93,32 @@ class data_storeTest extends PHPUnit_Framework_TestCase {
         unlink("tests/temp/indexes/a.index");
     }
 
+    public function testMultipleIndexCreation() {
+        $ds = new data_store();
+        $some_table = new table("foo");
+        $some_table->indexes = ["field"];
+        $some_table->data = ["a" => "b"];
+        $ds->store($some_table,$some_table->name);
+        $ds->index();
+        //
+        $some_table2 = new table("bar");
+        $some_table2->indexes = ["field2"];
+        $some_table2->data = ["a" => "c"];
+        $ds->store($some_table2,$some_table2->name);
+        $ds->index();
+        //
+        $this->assertTrue(file_exists($ds->getIndexRoot()."/a.index"));
+        $index = file("tests/temp/indexes/a.index");
+        $this->assertEquals(trim($index[0]),"b");
+        $this->assertEquals(trim($index[1]),"c");
+        //
+        unlink("tests/temp/tables/foo/".$some_table->id);
+        rmdir($ds->getTablesRoot()."/foo");
+        //
+        unlink("tests/temp/tables/bar/".$some_table2->id);
+        rmdir($ds->getTablesRoot()."/bar");
+        //
+        unlink("tests/temp/indexes/a.index");
+    }
+
 }
