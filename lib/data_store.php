@@ -1,6 +1,6 @@
 <?php
 
-date_default_timezone_set('America/Los_Angeles');
+date_default_timezone_set('UTC');
 
 class data_store {
 
