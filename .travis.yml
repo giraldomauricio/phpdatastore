@@ -9,4 +9,4 @@ addons:
     repo_token: 13bcb9a98909533393b5d0297aaa66ade7eedc37deef440e85fe8bd573376360
 
 after_script:
-  - vendor/bin/test-reporter
+  - CODECLIMATE_REPO_TOKEN=13bcb9a98909533393b5d0297aaa66ade7eedc37deef440e85fe8bd573376360 vendor/bin/test-reporter
