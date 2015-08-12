@@ -20,7 +20,7 @@ class data_storeTest extends PHPUnit_Framework_TestCase {
 
     public function testGetIndexRoot() {
         $ds = new data_store();
-        $this->assertEquals($ds->getIndexRoot(),$ds->location."index");
+        $this->assertEquals($ds->getIndexRoot(),$ds->location."indexes");
     }
 
     public function testDatastoreExists() {
@@ -42,7 +42,7 @@ class data_storeTest extends PHPUnit_Framework_TestCase {
     public function testDataStoreBasicDirectories() {
         $ds = new data_store();
         $this->assertEquals($ds->tablesFolder,"tables","Tables");
-        $this->assertEquals($ds->indexFolder,"index","Indexes");
+        $this->assertEquals($ds->indexFolder,"indexes","Indexes");
     }
 
     public function testListTables() {
@@ -82,8 +82,15 @@ class data_storeTest extends PHPUnit_Framework_TestCase {
 
     public function testIndexCreation() {
         $ds = new data_store();
-        echo "Testing...".__FILE__;
-        //$this->assertTrue($ds->createIndex())
+        $some_table = new table("foo");
+        $some_table->indexes = ["field"];
+        $some_table->data = ["a" => "b"];
+        $ds->store($some_table,$some_table->name);
+        $ds->index();
+        $this->assertTrue(file_exists($ds->getIndexRoot()."/a.index"));
+        unlink("tests/temp/tables/foo/".$some_table->id);
+        rmdir($ds->getTablesRoot()."/foo");
+        unlink("tests/temp/indexes/a.index");
     }
 
 }

@@ -1,0 +1,77 @@
+- datastore
+  - tables
+    - {table_name}
+      - {record_id}
+        - {field}
+          - {value}
+          
+          
+          
+- datastore
+  - tables
+    - transactions
+      - 902d-i2s9-89ds-iowjd
+        - date
+          - 1/1/2015
+        - amount
+          - 10.00
+      - 902d-38hd-89ds-iowjz
+        - date
+          - 1/2/2015
+        - amount
+          - 20.00
+      - 92ed-dwo2-89ds-iowjz
+        - date
+          - 1/1/2015
+        - amount
+          - 20.00
+    - orders
+      - 3492-9842-fi90-92r0
+        - transaction
+          - 902d-i2s9-89ds-iowjd
+          - 902d-38hd-89ds-iowjz
+        - customer
+          - 023i-ruj0-ijow-f03j
+        - date
+          - 1/2/2015
+      - d233-9842-fi90-fmo3
+        - transaction
+          - 92ed-dwo2-89ds-iowjz
+        - customer
+          - 023i-ruj0-ijow-f03j
+        - date
+          - 1/1/2015
+          
+  - indexes
+    - amount
+      ~ 10.00 - 902d-i2s9-89ds-iowjd - transactions
+      ~ 20.00 - 902d-38hd-89ds-iowjz - transactions
+      ~ 20.00 - 92ed-dwo2-89ds-iowjz - transactions
+    - date
+      ~ 1/1/2015 - 92ed-dwo2-89ds-iowjz - transactions
+      ~ 1/2/2015 - 902d-38hd-89ds-iowjz - transactions
+      ~ 1/1/2015 - 902d-i2s9-89ds-iowjd - transactions
+      ~ 1/1/2015 - 023i-ruj0-ijow-f03j - orders
+      ~ 1/1/2015 - d233-9842-fi90-fmo3 - orders
+    - transactions
+      ~ 902d-i2s9-89ds-iowjd - 902d-i2s9-89ds-iowjd - transactions
+      ~ 902d-38hd-89ds-iowjz - 902d-38hd-89ds-iowjz - transactions
+      ~ 92ed-dwo2-89ds-iowjz - 92ed-dwo2-89ds-iowjz - transactions
+      ~ 902d-i2s9-89ds-iowjd - 3492-9842-fi90-92r0 - orders
+      ~ 902d-38hd-89ds-iowjz - 3492-9842-fi90-92r0 - orders
+      ~ 92ed-dwo2-89ds-iowjz - d233-9842-fi90-fmo3 - orders
+    - orders
+      ~ 3492-9842-fi90-92r0 - 3492-9842-fi90-92r0 - orders
+      ~ d233-9842-fi90-fmo3 - d233-9842-fi90-fmo3 - orders
+          
+          
+          
+SELECT * FROM transactions WHERE amount > 15
+  - 902d-38hd-89ds-iowjz
+  - 92ed-dwo2-89ds-iowjz
+  
+SELECT * FROM transactions WHERE amount > 15 AND date > 1/1/2015
+  - 902d-38hd-89ds-iowjz
+  
+  
+SELECT * FROM transactions AS t, orders AS o WHERE t.id = o.transaction AND t.date = o.date

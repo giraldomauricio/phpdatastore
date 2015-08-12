@@ -2,6 +2,7 @@
 
 class object {
     var $created;
+    var $modified;
     var $id;
     var $data;
 

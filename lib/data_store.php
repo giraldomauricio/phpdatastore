@@ -6,9 +6,10 @@ class data_store {
 
     var $location;
     var $tablesFolder = "tables";
-    var $indexFolder = "index";
+    var $indexFolder = "indexes";
     var $root = ".";
     var $config;
+    var $object;
 
     function __construct() {
         if(defined("DS_ROOT")) {
@@ -65,6 +66,7 @@ class data_store {
     }
 
     function store($object, $table_name) {
+        $this->object = $object;
         $s = serialize($object);
         if(file_put_contents($this->getTablesRoot()."/".$table_name."/".$object->id, $s)) {
             return true;
@@ -73,9 +75,21 @@ class data_store {
         }
     }
 
+    function storeIndex($key, $value) {
+        $fh = fopen($this->getIndexRoot()."/".$key.".index", 'a');
+        fwrite($fh, $value."\n");
+        fclose($fh);
+    }
+
     function read($id, $table_name) {
         $s = file_get_contents($this->getTablesRoot()."/".$table_name."/".$id);
         return unserialize($s);
+    }
+
+    function index() {
+        foreach ($this->object->data as $key => $value) {
+            $this->storeIndex($key, $value);
+        }
     }
 
 }
